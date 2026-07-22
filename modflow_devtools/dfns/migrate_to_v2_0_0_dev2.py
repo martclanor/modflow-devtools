@@ -1307,6 +1307,7 @@ def to_v2_0_0_dev2(name: str, fields: OMD, meta: list[str]) -> v2.Component:
             else:
                 rec_fields = _subfield_map()
 
+            rec_fields = _subfield_map()
             return v2.Record(
                 name=_name,
                 longname=longname,
