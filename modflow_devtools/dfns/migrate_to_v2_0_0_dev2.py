@@ -1364,7 +1364,7 @@ def to_v2_0_0_dev2(name: str, fields: OMD, meta: list[str]) -> v2.Component:
     blocks: dict[str, v2.Block] = {}
 
     for field in fields.values(multi=True):
-        if field.get("in_record", False):
+        if try_parse_bool(field.get("in_record", False)):
             continue  # record subfields are handled recursively
         v2_field = _map_field(field)
         blocks.setdefault(field["block"], v2.Block(name=field["block"], fields={})).fields[
